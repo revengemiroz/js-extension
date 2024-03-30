@@ -1,0 +1,25 @@
+{
+  "name": "Offscreen Example",
+  "manifest_version": 3,
+  "version": "0.1",
+  "background": {
+    "service_worker": "worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Offscreen Example",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["offscreen"],
+   "host_permissions": [
+    "http://www.blogger.com/",
+    "*://*/*"
+  ],
+  "content_scripts":[
+    {
+        "matches":["https://*/*"],
+        "js":["content.js"],
+        "run_at":"document_idle"
+    }
+]
+}
